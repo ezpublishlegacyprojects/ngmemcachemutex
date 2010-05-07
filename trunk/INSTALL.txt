@@ -1,0 +1,25 @@
+Installing ngMemcacheMutex
+
+
+Requirements:
+- memcache php module http://www.php.net/manual/en/book.memcache.php
+- available memcached deamon http://memcached.org/
+
+
+Installing:
+1. Extract the ngmemcachemutex extension, and place it in the extensions folder.
+
+2. Enable the extension in eZ Publish. Do this by opening settings/override/site.ini.append.php
+   and add in the [ExtensionSettings] block:
+   ActiveExtensions[]=ngmemcachemutex
+
+3. Configure your memcached server and port in memcache.ini
+
+4. Update the class autoloads by running the script twice: 
+php bin/php/ezpgenerateautoloads.php -o
+php bin/php/ezpgenerateautoloads.php -e
+
+5. In config.php enable kernel override
+define( 'EZP_AUTOLOAD_ALLOW_KERNEL_OVERRIDE', true );
+
+
